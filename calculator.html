@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        table tr td{
+            background-color: aliceblue;
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <table align="center" cellpadding="20px" cellspacing="20px" bgcolor="black">
+        <tr>
+            <td colspan="4" bgcolor="white" height="30px" id="show"></td>
+            
+        </tr>
+        <tr>
+            <td onclick="Ac()">AC</td>
+            <td onclick="del()">Del</td>
+            <td onclick="squr()">a<sup>2</sup></td>
+            <td onclick="squr_root()">2&#8730;</td>
+        </tr>
+        <tr>
+            <td onclick="col(1)">1</td>
+            <td onclick="col(2)">2</td>
+            <td onclick="col(3)">3</td>
+            <td onclick="col('+')">+</td>
+        </tr>
+        <tr>
+            <td onclick="col(4)">4</td>
+            <td onclick="col(5)">5</td>
+            <td onclick="col(6)">6</td>
+            <td onclick="col('-')">-</td>
+        </tr>
+        <tr>
+            <td onclick="col(7)">7</td>
+            <td onclick="col(8)">8</td>
+            <td onclick="col(9)">9</td>
+            <td onclick="col('*')">&#128939;</td>
+        </tr>
+        <tr>
+            <td onclick="col(0)">0</td>
+            <td onclick="col('/')">/</td>
+            <td onclick="col('%')">%</td>
+            <td onclick="equal()">=</td>
+        </tr>
+        
+    </table>
+
+    <script>
+        let store='';
+        function col(num1){
+            store = store + num1;
+            document.getElementById('show').innerHTML = store;
+        }
+
+        function equal(){
+            console.log(eval(store))
+            document.getElementById('show').innerHTML = eval(store);
+        }
+
+        function Ac(){
+            store = ''
+            document.getElementById('show').innerHTML = store;
+        }
+
+        function del(){
+            store = store.slice(0,store.length-1);
+            document.getElementById('show').innerHTML = store ;
+        }
+
+         function squr(){
+            store = store*store;
+            // store = Math.pow(store,2);
+            document.getElementById('show').innerHTML = store;
+         }
+
+
+         function squr_root(){
+            // let a;
+            // a = store/2;
+            // if(store = a*a){
+            //     store = a;
+            // }
+            // else{
+            //       store = store/1.414;
+            // }
+            
+            store = Math.sqrt(store);
+            document.getElementById('show').innerHTML = store;
+         }
+    </script>
+</body>
+</html>
